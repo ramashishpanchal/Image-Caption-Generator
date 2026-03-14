@@ -1,0 +1,5 @@
+*.keras
+image_caption_40_epochs.keras
+Dockerfile
+
+__pycache__/
