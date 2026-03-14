@@ -1,67 +1,61 @@
-Image Caption Generator
+# Image Caption Generator
 
-An Image Caption Generator is a deep learning project that automatically generates descriptive captions for images. It combines Computer Vision and Natural Language Processing (NLP) to understand image content and produce human-like descriptions.
+The **Image Caption Generator** is a deep learning project that automatically generates descriptive captions for images. It combines **Computer Vision** and **Natural Language Processing (NLP)** to understand the visual content of an image and generate human-like textual descriptions.
 
+---
 
+## 🧠 How It Works
 
-🧠 How It Works
+The model follows a two-stage architecture:
 
-The project follows a two-part architecture:
+### 1. Image Feature Extraction
+A pretrained **Convolutional Neural Network (CNN)** such as **ResNet**, **VGG**, or **Inception** is used to extract visual features from input images.
 
-1. Image Feature Extraction
+In this project, the CNN encoder produces **feature maps of size (49, 2048)**.  
+These feature maps represent **49 spatial regions of the image**, each encoded with **2048-dimensional deep features** capturing high-level semantic information.
 
-A pretrained CNN (such as ResNet, VGG, or Inception) extracts visual features from the image.
+### 2. Caption Generation
+The extracted image features are then passed into a **sequence model (RNN/LSTM)** that generates captions **word by word**.
 
-In this project, the model is trained using feature maps of size (49, 2048) extracted from the CNN encoder.
-These feature maps represent spatial regions of the image along with deep semantic information.
+### Model Pipeline
 
-2. Caption Generation
+Image → CNN Feature Extractor → **49 × 2048 Feature Map** → LSTM Caption Generator → **Generated Caption**
 
-An RNN/LSTM-based sequence model processes the extracted image features and generates captions word by word.
+---
 
-Pipeline:
+## 🛠️ Tech Stack
 
-Image → CNN Feature Extractor → 49×2048 Feature Map → Caption Model (LSTM) → Generated Caption
+- Python
+- TensorFlow
+- Keras
+- NumPy
+- Pandas
+- Matplotlib
+- Jupyter Notebook (Kaggle)
 
+---
 
+## 📊 Dataset
 
-🛠️ Tech Stack
+The model can be trained using widely used image captioning datasets:
 
-Python
+- **Flickr8k**
+- **Flickr30k**
 
-TensorFlow 
+These datasets contain images paired with multiple human-written captions used for training caption generation models.
 
-NumPy
+---
 
-Matplotlib
+## 📈 Future Improvements
 
-Pandas
+- Upgrade feature extraction to **(196, 1024) feature maps** for finer spatial representation.
+- Improve caption quality using **attention mechanisms**.
+- Deploy the model as an **API** for real-world applications.
 
-Keras
-
-Jupyter Notebook (Kaggle)
-
-
-
-📊 Dataset
-
-Common datasets used for training:
-
-Flickr8k
-
-Flickr30k
-
-
-
-📈 Future Improvements
-
-Upgrade feature extraction to (196, 1024) feature maps for finer spatial representation
-
-Deploy the model as an API
-
+---
 
 ## 📒 Kaggle Notebook
 
-You can view the full training and implementation in my Kaggle notebook:
+You can view the full training process and implementation on Kaggle:
 
 🔗 https://www.kaggle.com/code/ramashishpanchal/image-caption-generator
