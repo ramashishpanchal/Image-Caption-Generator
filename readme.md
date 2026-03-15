@@ -16,15 +16,18 @@ These feature maps represent **49 spatial regions of the image**, each encoded w
 
 ### 2. Caption Generation
 
-The extracted image features are passed to a language model that generates captions **word by word**.
+During the development of this project, the caption generation model evolved through two stages.
 
-The project was implemented in two stages:
+### 1. LSTM-based Caption Generator
+The initial implementation used a **Recurrent Neural Network (LSTM)** as the decoder.  
+In this approach, the model generated captions **word by word** using the image features extracted by the CNN encoder. The LSTM helped model sequential dependencies in the caption while conditioning on the visual features of the image.
 
-- **LSTM-based Caption Generator**  
-  Initially, a **Recurrent Neural Network (LSTM)** was used to generate captions from the extracted image features.
+### 2. Transformer-based Caption Generator
+To further improve caption quality and contextual understanding, the architecture was later upgraded to a **Transformer-based decoder implemented using TensorFlow/Keras layers**.
 
-- **Transformer-based Caption Generator**  
-  To improve caption quality and contextual understanding, a **full Transformer architecture was later implemented from scratch**, replacing the LSTM-based decoder.
+Unlike LSTMs, the Transformer architecture uses **self-attention mechanisms** that allow the model to capture **long-range dependencies and richer contextual relationships** between words in the generated caption. This transition improved the model's ability to produce more coherent and contextually accurate descriptions.
+
+---
 
 ### Model Pipeline
 
